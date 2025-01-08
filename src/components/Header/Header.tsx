@@ -40,7 +40,7 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <Link href="/">To Do App </Link>{" "}
+        <Link href="/">StackOverflow Clone </Link>{" "}
       </div>
       <nav className={styles.desktopNav}>{navbar} </nav>
 

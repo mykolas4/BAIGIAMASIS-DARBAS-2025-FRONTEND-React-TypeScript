@@ -37,7 +37,7 @@ const TaskForm = () => {
 
   return (
     <div>
-      <h1 className={styles.title}>Add task</h1>
+      <h1 className={styles.title}>Add question</h1>
       <div className={styles.form}>
         <input
           placeholder="title"
