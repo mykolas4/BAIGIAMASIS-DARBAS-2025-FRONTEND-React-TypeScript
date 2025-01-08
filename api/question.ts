@@ -16,7 +16,7 @@ export const getAllQuestions = async () => {
     });
 
     return response.data; 
-  } catch (error) {
+  } catch  {
   }
 };
 
