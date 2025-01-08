@@ -8,11 +8,16 @@ const headers = {
 };
 
 export const getAllQuestions = async () => {
-  const response = await axios.get(`${process.env.BASE_URL}/questions`, {
-    headers,
-  });
+  try {
+    const url = `${process.env.BASE_URL}/questions`;
 
-  return response;
+    const response = await axios.get(url, {
+      headers,
+    });
+
+    return response.data; 
+  } catch (error) {
+  }
 };
 
 export const insertQuestion = async () => {
