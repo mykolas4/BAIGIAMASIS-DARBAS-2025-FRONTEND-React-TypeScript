@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   
   reactStrictMode: false,
   env: {
-    BASE_URL: "http://localhost:3000",
+    BASE_URL: "http://localhost:3002",
   },
 };
 

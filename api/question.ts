@@ -9,7 +9,7 @@ const headers = {
 
 export const getAllQuestions = async () => {
   try {
-    const url = `${process.env.BASE_URL}/questions`;
+    const url = `http://localhost:3002/questions`;
 
     const response = await axios.get(url, {
       headers,
@@ -21,15 +21,16 @@ export const getAllQuestions = async () => {
 };
 
 export const insertQuestion = async () => {
-  const response = await axios.post(`${process.env.BASE_URL}/questions/`, {
+  const response = await axios.post(`http://localhost:3002/question/`, {
     headers,
   });
 
   return response;
 };
 
+
 export const deleteQuestionbyId= async (id: string) => {
-  const response = await axios.delete(`${process.env.BASE_URL}/questions/${id}`, {
+  const response = await axios.delete(`http://localhost:3002/question/${id}`, {
     headers,
   });
 

@@ -5,7 +5,7 @@ import styles from "./styles.module.css"
 
 
 type QuestionsProps = {
-  questions: [Question];
+  questions: Question [];
 };
 
 const Questions = ({ questions }: QuestionsProps) => {

@@ -6,12 +6,12 @@ type userCredentials = {
 };
 
 export const loginUser = async (userData: userCredentials) => {
-  const response = await axios.post(`${process.env.BASE_URL}/login`, userData);
+  const response = await axios.post(`http://localhost:3002/login`, userData);
   return response;
 };
 
 export const registerUser = async (userData: userCredentials) => {
-    const response = await axios.post(`${process.env.BASE_URL}/register`, userData);
+    const response = await axios.post(`http://localhost:3002/register`, userData);
     return response.data;
   };
 

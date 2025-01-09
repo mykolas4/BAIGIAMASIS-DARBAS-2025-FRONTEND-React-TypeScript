@@ -8,7 +8,7 @@ const headers = {
 };
 
 export const getAnswersById = async (id: string) => {
-  const response = await axios.get(`${process.env.BASE_URL}/questions/${id}/answers`, {
+  const response = await axios.get(`http://localhost:3002/questions/${id}/answers`, {
     headers,
   });
 
@@ -17,14 +17,14 @@ export const getAnswersById = async (id: string) => {
 
 
 export const insertAnswersById = async (id: string, answerData: object) => {
-  const response = await axios.post(`${process.env.BASE_URL}/questions/${id}/answers`, answerData, {
+  const response = await axios.post(`http://localhost:3002/questions/${id}/answers`, answerData, {
     headers,
   });
   return response;
 };
 
 export const deleteAnswersById= async (questionId: string, answerId: string) => {
-  const response = await axios.delete(`${process.env.BASE_URL}/questions/${questionId}/answers/${answerId}`, {
+  const response = await axios.delete(`http://localhost:3002/questions/${questionId}/answers/${answerId}`, {
     headers,
   });
 

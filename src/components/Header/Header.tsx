@@ -20,7 +20,7 @@ const Header = () => {
   const navbar = (
     <ul>
       <li>
-        <Link href="/">Main</Link>
+        <Link href="/login">Main</Link>
       </li>
       <li>
         <Link href="/insert">Ask Question</Link>
