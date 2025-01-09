@@ -5,12 +5,12 @@ import Button from "../Button/Button";
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
 
-const TaskForm = () => {
+const QuestionForm = () => {
   const [title, setTitle] = useState("");
   const [points, setPoints] = useState("");
   const router = useRouter();
 
-  const insertTask = async () => {
+  const insertQuestion = async () => {
     try {
       const headers = {
         authorization: cookie.get("jwt_token"),
@@ -51,10 +51,10 @@ const TaskForm = () => {
           onChange={(e) => setPoints(e.target.value)}
           type="text"
         />
-        <Button title="add" isLoading={false} onClick={insertTask} />
+        <Button title="add" isLoading={false} onClick={insertQuestion} />
       </div>
     </div>
   );
 };
 
-export default TaskForm;
+export default QuestionForm;

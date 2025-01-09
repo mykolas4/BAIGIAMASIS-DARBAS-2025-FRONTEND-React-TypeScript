@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Tasks from "@/src/components/Questions/Questions";
-import { Task } from "@/types/question";
+import Questions from "@/src/components/Questions/Questions";
+import { Question } from "@/types/question";
 import PageTemplate from "@/src/components/PageTemplate/PageTemplate";
 import { getAllQuestions } from "@/api/question";
 const MainPage: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
 
-  const fetchTasks = async () => {
+  const fetchQuestions = async () => {
     try {
       const response = await getAllQuestions();
   
-      if (response && response.data && response.data.tasks) {
-          setTasks(response.data.tasks);
+      if (response && response.data && response.data.questions) {
+          setQuestions(response.data.questions);
       } else {
           console.error("Unexpected response structure:", response);
       }
@@ -21,12 +21,12 @@ const MainPage: React.FC = () => {
 }
 
   useEffect(() => {
-    fetchTasks();
+    fetchQuestions();
   }, []); //
 
   return (
     <PageTemplate>
-      <Tasks tasks={tasks} />
+      <Questions questions={questions} />
     </PageTemplate>
   );
 };

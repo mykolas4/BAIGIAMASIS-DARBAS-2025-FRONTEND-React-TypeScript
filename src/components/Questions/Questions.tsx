@@ -1,26 +1,26 @@
 import React from "react";
-import { Task } from "@/types/question";
+import { Question } from "@/types/question";
 import Card from "../Card/Card";
 import styles from "./styles.module.css"
 
 
-type TasksProps = {
-  tasks: Task[];
+type QuestionsProps = {
+  questions: [Question];
 };
 
-const Tasks = ({ tasks }: TasksProps) => {
+const Questions = ({ questions }: QuestionsProps) => {
   return (
     <div className={styles.wrapper}>
-      {tasks.map((task) => {
+      {questions.map((question) => {
         return (
           <Card
-          id={task.id}
-            key={task.id}
-            title={task.title}
+          id={question.id}
+            key={question.id}
+            title={question.title}
           />
         );
       })}
     </div>
   );
 };
-export default Tasks;
+export default Questions;

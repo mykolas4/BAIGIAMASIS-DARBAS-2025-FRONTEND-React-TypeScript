@@ -1,4 +1,4 @@
-export type Task = {
+export type Question = {
     id: string;
     title: string;
   }

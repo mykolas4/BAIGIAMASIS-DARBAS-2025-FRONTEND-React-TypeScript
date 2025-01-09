@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { useRouter } from "next/router";
-import { Task } from "@/types/question";
+import { Question } from "@/types/question";
 import Button from "@/src/components/Button/Button";
 import PageTemplate from "@/src/components/PageTemplate/PageTemplate";
 import { getAllQuestions, deleteQuestionbyId } from "@/api/question";
 
-const TaskPage = () => {
-  const [task, setTask] = useState<Task | null>(null);
+const QuestionPage = () => {
+  const [question, setQuestion] = useState<Question | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
-  const fetchTask = async (id: string) => {
+  const fetchQuestion = async (id: string) => {
     setLoading(true);
     try {
       const response = await getAllQuestions(); 
-      const fetchedTask = response.data((question: Task) => question.id === id);
-      setTask(fetchedTask || null);
+      const fetchedQuestion = response.data((question: Question) => question.id === id);
+      setQuestion(fetchedQuestion || null);
     } catch (error) {
-      console.error("Error fetching task:", error);
+      console.error("Error fetching question:", error);
     } finally {
       setLoading(false);
     }
@@ -32,7 +32,7 @@ const TaskPage = () => {
         router.push("/");
       }
     } catch (err) {
-      console.error("Error deleting task:", err);
+      console.error("Error deleting question:", err);
     } finally {
       setLoading(false); 
     }
@@ -41,37 +41,37 @@ const TaskPage = () => {
   useEffect(() => {
     const { id } = router.query;
     if (typeof id === 'string') {
-      fetchTask(id); 
+      fetchQuestion(id); 
     }
   }, [router.query.id]);
 
   return (
     <PageTemplate>
       <section className={styles.content}>
-        {task ? (
+        {question ? (
           <>
             <div className={styles.buttonWrapper}>
               <Button
                 isLoading={isLoading}
-                title={"Delete task"}
+                title={"Delete question"}
                 className={styles.dangerBtn}
                 onClick={() => {
-                  if (task?.id) {
-                    handleDeleteQuestionById(task.id); 
+                  if (question?.id) {
+                    handleDeleteQuestionById(question.id); 
                   }
                 }}
               />
             </div>
             <div>
-              <h2>{task.title}</h2>
+              <h2>{question.title}</h2>
             </div>
           </>
         ) : (
-          <p>Loading task...</p> 
+          <p>Loading question...</p> 
         )}
       </section>
     </PageTemplate>
   );
 };
 
-export default TaskPage;
+export default QuestionPage;

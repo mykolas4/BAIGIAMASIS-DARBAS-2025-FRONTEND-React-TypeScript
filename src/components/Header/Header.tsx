@@ -5,6 +5,7 @@ import cookie from "js-cookie";
 import burgerBtn from "@/assets/img/burger-btn.svg";
 import Link from "next/link";
 import logOut from "@/assets/img/logout.svg";
+import logo from "@/assets/img/logo.svg"
 
 const Header = () => {
   const [isBurgerButtonClicked, setBurgerButtonClicked] = useState(false);
@@ -22,7 +23,7 @@ const Header = () => {
         <Link href="/">Main</Link>
       </li>
       <li>
-        <Link href="/insert">Insert</Link>
+        <Link href="/insert">Ask Question</Link>
       </li>
       <li>
         <button
@@ -40,7 +41,7 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <Link href="/">StackOverflow Clone </Link>{" "}
+        <Link href="/"><img src={logo.src} alt="Logo" style={{ width: '150px', height: 'auto' }} /> </Link>{" "}
       </div>
       <nav className={styles.desktopNav}>{navbar} </nav>
 
