@@ -21,7 +21,7 @@ const QuestionForm = () => {
         points: points,
       };
 
-      const response = await axios.post(`http://localhost:3002/questions/`, body, {
+      const response = await axios.post(`http://localhost:3000/`, body, {
         headers,
       });
 

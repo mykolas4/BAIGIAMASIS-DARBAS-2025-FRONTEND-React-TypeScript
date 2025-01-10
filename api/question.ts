@@ -8,17 +8,13 @@ const headers = {
 };
 
 export const getAllQuestions = async () => {
-  try {
-    const url = `http://localhost:3002/questions`;
+  const response = await axios.get("http://localhost:3002/questions", {
+    headers,
+  });
 
-    const response = await axios.get(url, {
-      headers,
-    });
-
-    return response.data; 
-  } catch  {
-  }
+  return response;
 };
+
 
 export const insertQuestion = async () => {
   const response = await axios.post(`http://localhost:3002/question/`, {

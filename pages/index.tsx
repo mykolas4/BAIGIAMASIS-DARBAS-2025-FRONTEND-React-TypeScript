@@ -13,27 +13,23 @@ const MainPage = () => {
   const fetchQuestions = async () => {
     try {
       const response = await getAllQuestions();
-  
 
       if (response.data && response.data.questions) {
         setTasks(response.data.questions); 
       } else {
-        console.error("Unexpected response structure:", response);
       }
     } catch (err) {
       const error = err as AxiosError;
- 
+
       if (error.response) {
         if (error.response.status === 401) {
           router.push("/login");
         } else {
-          console.error("Axios Error:", error.response.data); 
         }
       } else {
-        console.error("Error fetching tasks:", error.message || err); 
       }
     }
-  };
+};
 
   useEffect(() => {
     fetchQuestions();
