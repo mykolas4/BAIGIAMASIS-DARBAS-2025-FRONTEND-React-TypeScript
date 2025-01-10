@@ -11,7 +11,13 @@ export const loginUser = async (userData: userCredentials) => {
 };
 
 export const registerUser = async (userData: userCredentials) => {
-    const response = await axios.post(`http://localhost:3002/register`, userData);
-    return response.data;
-  };
-
+  try {
+      const response = await axios.post(`http://localhost:3002/register`, userData);
+      return response.data;
+  } catch (error) {
+      if (axios.isAxiosError(error)) {
+      } else {
+      }
+      throw error; 
+  }
+};

@@ -20,10 +20,13 @@ const Header = () => {
   const navbar = (
     <ul>
       <li>
-        <Link href="/login">Main</Link>
+        <Link href="/">Main</Link>
       </li>
       <li>
         <Link href="/insert">Ask Question</Link>
+      </li>
+      <li>
+        <Link href="/register">Register</Link>
       </li>
       <li>
         <button
