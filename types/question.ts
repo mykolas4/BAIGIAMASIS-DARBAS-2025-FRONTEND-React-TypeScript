@@ -3,7 +3,8 @@ export type Question = {
     title: string;
   }
   
- export type userCredentials = {
+  export type userCredentials = {
     email: string;
     password: string;
-  };
+    username?: string; 
+};

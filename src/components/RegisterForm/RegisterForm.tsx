@@ -19,45 +19,46 @@ const RegisterForm = () => {
     try {
       setRegisterIn(true);
       setError(false);
-
+  
       if (password !== confirmPassword) {
         setError(true);
         setRegisterIn(false);
         return;
       }
-
+  
       const userData = {
-        username: username, 
+        username: username,
         email: email,
         password: password,
       };
-
+  
       const response = await registerUser(userData);
-
+  
       if (response.status === 200) {
         cookie.set("jwt_token", response.data.token);
-        router.push("/register");
+        router.push("/");
       }
-
+  
     } catch (err) {
-        const error = err as AxiosError;
-    
-        setRegisterIn(false);
-        setError(true);
-        if (error.response) {
-        } else if (error.request) {
-          console.error('Error request:', error.request);
-        } else {
-          console.error('Error message:', error.message);
-        }
+      const error = err as AxiosError;
+  
+      setRegisterIn(false);
+      setError(true);
+  
+      if (error.response) {
+        console.error('Error status:', error.response.status);
+        console.error('Error data:', error.response.data);
+      } else if (error.request) {
+        console.error('Error request:', error.request);
+      } else {
       }
-    };
-
+    }
+  };
   return (
     <div className={styles.wrapper}>
       <h1>Register</h1>
       <input
-        type="text"
+        type="Username"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}

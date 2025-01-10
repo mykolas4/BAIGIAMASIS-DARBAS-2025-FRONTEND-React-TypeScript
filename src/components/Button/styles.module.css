@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: goldenrod;
+    background-color: rgb(3, 74, 167);
     border: none;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     transition: 0.3s;
@@ -20,7 +20,7 @@
     aspect-ratio: 1;
     display: grid;
     grid: 50%/50%;
-    color: #ffa516;
+    color: #060606;
     border-radius: 50%;
     --_g: no-repeat linear-gradient(currentColor 0 0);
     background: var(--_g), var(--_g), var(--_g);

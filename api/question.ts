@@ -8,7 +8,7 @@ const headers = {
 };
 
 export const getAllQuestions = async () => {
-  const response = await axios.get("http://localhost:3002/questions", {
+  const response = await axios.get("http://localhost:3002/questions/", {
     headers,
   });
 

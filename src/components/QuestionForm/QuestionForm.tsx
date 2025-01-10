@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 const QuestionForm = () => {
   const [title, setTitle] = useState("");
-  const [points, setPoints] = useState("");
   const router = useRouter();
 
   const insertQuestion = async () => {
@@ -18,7 +17,6 @@ const QuestionForm = () => {
 
       const body = {
         title: title,
-        points: points,
       };
 
       const response = await axios.post(`http://localhost:3000/`, body, {
@@ -43,12 +41,6 @@ const QuestionForm = () => {
           placeholder="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          type="text"
-        />
-        <input
-          placeholder="points"
-          value={points}
-          onChange={(e) => setPoints(e.target.value)}
           type="text"
         />
         <Button title="add" isLoading={false} onClick={insertQuestion} />
